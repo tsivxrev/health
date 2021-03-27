@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Health</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+
+<style>
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  .section {
+    flex: 1;
+  }
+
+  .subtitle>strong {
+    color: white !important;
+  }
+</style>
+
+<body>
+  <section class="hero is-success">
+    <div class="hero-body">
+      <p class="title">
+        Boo!
+      </p>
+      <p class="subtitle">
+        If you see this message, then all services are working.
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="tile is-ancestor">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+          <p class="title">Uptime</p>
+          <p class="subtitle">I'm alive for about <%=os.uptime %>
+          </p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+          <p class="title">CPU Load</p>
+          <p class="subtitle"><strong>
+              <%=cpu.toFixed(1) %>%
+            </strong> loaded</p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+          <p class="title">RAM Load</p>
+          <p class="subtitle">Used <strong>
+              <%=ram.usedMemMb.toFixed() %>
+            </strong> of <strong>
+              <%=ram.totalMemMb.toFixed() %>
+            </strong> MB <strong>(<%=ram.usedMemPercentage.toFixed(1) %>%)</strong></p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-primary">
+          <p class="title">Drive Load</p>
+          <p class="subtitle">Used <%=rom.usedGb %> of <%=rom.totalGb %> GB <strong>(<%=rom.usedPercentage %>%)</strong>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Health Service</strong> by <a href="https://xvtn.ru/">Arseny Tsivarev</a>. I don't know why I made this.
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
